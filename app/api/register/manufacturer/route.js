@@ -20,7 +20,7 @@ export const POST = async (req, res) => {
         query: "INSERT INTO manufacturers (rno, company_name, office_address, contact_information,email) VALUES (?,?,?,?,?)",
         values: [regNo, companyName, officeAddress, contactInfo, email],
     });
-    // INSERT INTO `login_info`(`user_id`, `username`, `password`, `role`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]')
+    
     const addLogin = await query({
         query: "INSERT INTO login_info (username, password, role) VALUES (?,?,?)",
         values: [username, password, 'manufacturer'],
