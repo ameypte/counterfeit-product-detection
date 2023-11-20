@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2023 at 11:45 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.0.25
+-- Generation Time: Nov 20, 2023 at 10:43 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.1.17
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,10 +29,18 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `login_info` (
   `user_id` int(11) NOT NULL,
-  `email` varchar(255) NOT NULL,
+  `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `role` enum('admin','user') NOT NULL
+  `role` enum('manufacturer','user') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `login_info`
+--
+
+INSERT INTO `login_info` (`user_id`, `username`, `password`, `role`) VALUES
+(1002, 'admin', 'admin', 'manufacturer'),
+(1003, 'fewf', '12345678', 'manufacturer');
 
 -- --------------------------------------------------------
 
@@ -47,6 +55,13 @@ CREATE TABLE `manufacturers` (
   `contact_information` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `manufacturers`
+--
+
+INSERT INTO `manufacturers` (`rno`, `company_name`, `office_address`, `contact_information`, `email`) VALUES
+(1235, 'Government Polytechnic Amravati', 'Tilak Chowk, Washim', '8625032593', 'ameypte@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -98,7 +113,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `login_info`
 --
 ALTER TABLE `login_info`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1002;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1004;
 
 --
 -- AUTO_INCREMENT for table `users`
